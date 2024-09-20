@@ -107,3 +107,7 @@ body {
   scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
 }
+
+p {
+  white-space: break-spaces;
+}

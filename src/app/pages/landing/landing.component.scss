@@ -498,6 +498,7 @@
       }
 
       .project-circle-count {
+        flex: 1 1 300px;
         display: flex;
         align-items: center;
         gap: 3rem;
@@ -593,7 +594,7 @@
         .landing-page--commitments-numbers-analytics-number-content {
           font-family: "Raleway", sans-serif;
           font-weight: 900;
-          font-size: 4rem;
+          font-size: 3rem;
           color: var(--dark);
         }
 
@@ -705,7 +706,7 @@
       border-radius: 24px;
       display: flex;
       flex-wrap: wrap;
-      padding: 4rem 3rem;
+      padding: 4rem 2rem;
       gap: 3rem;
 
       .blog-post-img {
