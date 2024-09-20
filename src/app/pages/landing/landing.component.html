@@ -1,0 +1,319 @@
+<header class="initial-header">
+  <nav class="initial-navigation"></nav>
+</header>
+<section class="initial">
+  <h1 class="initial-scopo">agência de marketing</h1>
+  <img
+    ngSrc="identidade-visual-jump.svg"
+    srcset="identidade-visual-jump.svg 1x, identidade-visual-jump@2x.svg 2x"
+    alt="Identidade visual vibrante e profissional da nossa agência de marketing, destacando nossa especialização em SEO e estratégias de tráfego orgânico."
+    class="initial-logo"
+    loading="lazy"
+  />
+  <img
+    src="megafone.webp"
+    srcset="megafone.webp 1x, megafone@2x.webp 2x"
+    class="initial-megaphone"
+    alt="Amplifique sua marca: estratégias de marketing eficazes"
+    loading="lazy"
+  />
+  <!--  -->
+  <div class="initial-mouse"></div>
+  <button class="initial-cta-button">
+    Entre em contato
+    <div class="initial-cta-button-icon-container">
+      <img
+        src="arrow-up-right-svgrepo-com.svg"
+        alt="Seta para direita"
+        loading="lazy"
+        class="initial-cta-button-icon"
+      />
+    </div>
+  </button>
+</section>
+<section class="about">
+  <img src="folha-amassada.jpg" alt="" class="background-about" />
+  <div class="about-content">
+    <section class="about-estatua-img">
+      <img
+        src="coffee-branch.png"
+        alt=""
+        class="branch-coffee"
+        id="serviceCompImgLeft"
+      />
+      <img
+        src="estatua-default.png"
+        alt=""
+        class="service-comp-img comp-img-left"
+        id="serviceCompImgLeft"
+      />
+    </section>
+    <section class="about-logo-description">
+      <article>
+        <header>Vamos dar um JUMP na sua empresa?</header>
+        <p>
+          Fundada em 2024, nossa agência de marketing é jovem, descontraída e
+          profissional. Oferecemos soluções criativas e inovadoras para
+          impulsionar sua marca. Especialistas em SEO, redes sociais e campanhas
+          digitais, garantimos resultados eficazes e crescimento contínuo para o
+          seu negócio. 🚀
+        </p>
+      </article>
+    </section>
+  </div>
+</section>
+<!-- <h2 class="services-title section-title"></h2>
+    serviços • serviços • serviços • serviços
+  </h2>
+
+  <div class="services-container">
+    <ul class="service-list-items">
+      @for(service of services; track service; let index = $index) {
+      <li
+        class="service-list-item"
+        [ngClass]="{ selected: service.isSelectedService }"
+      >
+        <label class="service-list-item-label" [for]="'service-' + index">
+          <h2 class="service-title">#{{ service.title }}</h2>
+          <p class="service-description">{{ service.descriptionService }}</p>
+          <span class="circles circle-1"></span>
+          <span class="circles circle-2"></span>
+          <span class="circles circle-3"></span>
+          <span class="circles circle-4"></span>
+          <input
+            type="checkbox"
+            name="services"
+            [hidden]="true"
+            [id]="'service-' + index"
+            (click)="service.isSelectedService = !service.isSelectedService"
+          />
+        </label>
+      </li>
+      }
+    </ul>
+  </div> -->
+<section class="projects">
+  <img src="grid.svg" class="projects-grid-background" alt="" />
+  <h2 class="projects-title section-title">
+    โครงการ • projetos • projects • 專案 • Проекты •
+  </h2>
+  <div class="projects-container">
+    @for(category of services; track category; let index = $index) {
+    <article
+      class="projects-collection"
+      [ngClass]="{ 'collection-selected': categorySelected == index + 1 }"
+    >
+      <section class="projects-collection-title">
+        <header class="projects-collection-title-header">
+          <div class="project-circle-count">
+            A{{ index + 1 }}
+            <p class="projects-collection-title-content">
+              {{ category.title }}
+            </p>
+          </div>
+
+          <img
+            src="arrow-right-svgrepo-com.svg"
+            alt="seta para o lado aplicando o serviço de marketing digital"
+            class="projects-arrow"
+          />
+        </header>
+        <p class="projects-collection-description">
+          {{ category.descriptionService }}
+        </p>
+      </section>
+    </article>
+    }
+  </div>
+</section>
+<section class="landing-page--comments">
+  <section class="landing-page--commitments-numbers-analytics">
+    <section class="landing-page--commitments-numbers-analytics-numbers">
+      @for (number of numbers; track $index) {
+      <div class="landing-page--commitments-numbers-analytics-number">
+        <span class="landing-page--commitments-numbers-analytics-number-content"
+          >{{ number.number }}{{ number.sufix }}</span
+        >
+        <span
+          class="landing-page--commitments-numbers-analytics-number-description"
+          >{{ number.description }}</span
+        >
+      </div>
+      }
+    </section>
+    <section class="landing-page--commitments-numbers-analytics-explain">
+      <span class="landing-page--commitments-numbers-analytics-title">
+        Nosso compromisso
+      </span>
+      <p class="landing-page--commitments-numbers-analytics-description">
+        Nosso compromisso é com a excelência no trabalho e com o sucesso dos
+        nossos clientes. Estamos comprometidos em trabalhar com você de forma
+        colaborativa para entender seus objetivos e criar uma estratégia que os
+        alcance.
+      </p>
+    </section>
+  </section>
+</section>
+<section class="blog">
+  <header class="blog-header">
+    <div class="blog-header-img-hero">
+      <img
+        src="estatua-direita.png"
+        alt=""
+        class="blog-header-img"
+        loading="lazy"
+      />
+    </div>
+    <h2 class="blog-title section-title">
+      บล็อก • blog • 博客 • Блог • บล็อก • blog • 博客 • Блог
+    </h2>
+  </header>
+  @let firsPost = latestPost[0]; @let otherPosts = latestPost.slice(1);
+
+  <section class="blog-latest-posts">
+    <article class="blog-post-card">
+      <img [src]="firsPost.banner" class="blog-post-img" alt="" />
+      <section class="blog-post-card-body">
+        <span class="blog-post-card-body--date">{{
+          firsPost.createdAt | date : "dd MMM yyyy" : "pt-BR"
+        }}</span>
+        <p class="blog-post-card-body--title">{{ firsPost.title }}</p>
+        <span class="blog-post-card-body--description">
+          {{ firsPost.description }}
+        </span>
+        <img
+          src="arrow-right-svgrepo-com.svg"
+          alt="seta para o lado aplicando o serviço de marketing digital"
+          class="blog-post-arrow"
+        />
+      </section>
+    </article>
+    <aside class="blog-aside-posts">
+      @for(post of otherPosts; track post) {
+      <article class="blog-post-card">
+        <img [src]="post.banner" class="blog-post-img" alt="" />
+        <section class="blog-post-card-body">
+          <span class="blog-post-card-body--date">{{
+            post.createdAt | date : "dd MMM yyyy" : "pt-BR"
+          }}</span>
+          <p class="blog-post-card-body--title">{{ post.title }}</p>
+          <span class="blog-post-card-body--description">
+            {{ post.description }}
+          </span>
+          <img
+            src="arrow-right-svgrepo-com.svg"
+            alt="seta para o lado aplicando o serviço de marketing digital"
+            class="blog-post-arrow"
+          />
+        </section>
+      </article>
+      }
+    </aside>
+  </section>
+</section>
+<section class="contact-area">
+  <form class="contact-area--form">
+    <h2 class="section-title">Entre em contato</h2>
+    <input type="text" placeholder="Nome" />
+    <input type="text" placeholder="Email" />
+    <textarea placeholder="Mensagem"></textarea>
+    <button class="contact-area--form-button">Enviar</button>
+  </form>
+
+  <section class="contact-area-img--container">
+    <img
+      src="monaliza.jpg"
+      alt=""
+      class="contact-area-img--monaliza"
+      loading="lazy"
+    />
+    <img
+      src="estatua-olho-riscado.png"
+      alt=""
+      class="contact-area-img--estatua"
+      loading="lazy"
+    />
+  </section>
+  <form class="contact-area--form">
+    <h2 class="section-title">Assine nossa newsletter</h2>
+    <p>
+      Cadastre-se para receber novidades. <span>É gratuito</span> e pode
+      cancelar a qualquer momento
+    </p>
+    <input type="text" placeholder="Nome" />
+    <input type="text" placeholder="Email" />
+    <button class="contact-area--form-button">Assinar</button>
+  </form>
+</section>
+<footer class="footer">
+  <ul class="footer__nav">
+    <li class="nav__item">
+      <h2 class="nav__title">Media</h2>
+
+      <ul class="nav__ul">
+        <li>
+          <a href="#">Online</a>
+        </li>
+
+        <li>
+          <a href="#">Print</a>
+        </li>
+
+        <li>
+          <a href="#">Alternative Ads</a>
+        </li>
+      </ul>
+    </li>
+
+    <li class="nav__item nav__item--extra">
+      <h2 class="nav__title">Menu</h2>
+
+      <ul class="nav__ul nav__ul--extra">
+        <li>
+          <a href="#">Inicio</a>
+        </li>
+
+        <li>
+          <a href="#">Parceiros</a>
+        </li>
+
+        <li>
+          <a href="#">Como trabalhamos</a>
+        </li>
+
+        <li>
+          <a href="#">Serviços</a>
+        </li>
+
+        <li>
+          <a href="#">Sobre</a>
+        </li>
+
+        <li>
+          <a href="#">Contato</a>
+        </li>
+      </ul>
+    </li>
+
+    <li class="nav__item">
+      <h2 class="nav__title">Legal</h2>
+
+      <ul class="nav__ul">
+        <li>
+          <a href="#">Privacy Policy</a>
+        </li>
+
+        <li>
+          <a href="#">Terms of Use</a>
+        </li>
+
+        <li>
+          <a href="#">Sitemap</a>
+        </li>
+      </ul>
+    </li>
+    <li class="nav__item">
+      <h2 class="nav__title">&copy; 2024 Something. All rights reserved.</h2>
+    </li>
+  </ul>
+</footer>

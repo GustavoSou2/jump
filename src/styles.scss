@@ -1,1 +1,109 @@
 /* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Modak&family=Raleway:ital,wght@0,100..900;1,100..900&family=Rowdies:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poller+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+:root {
+  --gray-100: #f8f9fa;
+  --gray-200: #e9ecef;
+  --gray-300: #dee2e6;
+  --gray-400: #ced4da;
+  --gray-500: #adb5bd;
+  --gray-600: #6c757d;
+  --gray-700: #495057;
+  --gray-800: #343a40;
+  --gray-900: #212529;
+
+  --yellow-100: #fff8e1;
+  --yellow-200: #ffecb3;
+  --yellow-300: #ffe082;
+  --yellow-400: #ffd54f;
+  --yellow-500: #ffca28;
+  --yellow-600: #ffc300;
+  --yellow-700: #ffc107;
+
+  --purple-100: #f7f0ff;
+  --purple-200: #e5d5ff;
+  --purple-300: #d0a6ff;
+  --purple-400: #b180ff;
+  --purple-500: #9b59b6;
+  --purple-600: #5b04db;
+
+  --green-100: #d0f8d7;
+  --green-200: #a6e8a0;
+  --green-300: #2ecc71;
+  --green-400: #15c74e;
+  --green-500: #5cb85c;
+
+  --blue-100: #d9edf7;
+  --blue-200: #a6d8f0;
+  --blue-300: #52cde5;
+  --blue-400: #29bdd3;
+  --blue-500: #0f9cd1;
+  --blue-600: #3a9bdc;
+
+  --brown-100: #f7f2f0;
+  --brown-200: #e5d5d0;
+  --brown-300: #d0a6a0;
+  --brown-400: #b18080;
+  --brown-500: #9b595b;
+  --brown-600: #5b2f14;
+
+  --obsidian-100: #f3f4f6;
+  --obsidian-200: #e5e7eb;
+  --obsidian-300: #d1d5db;
+  --obsidian-400: #9ca3af;
+  --obsidian-500: #6b7280;
+  --obsidian-600: #4b5563;
+  --obsidian-700: #0b1215;
+}
+
+html {
+  scroll-behavior: smooth;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-overflow-scrolling: touch;
+
+  font-family: "Inter", system-ui;
+  font-optical-sizing: auto;
+
+  overflow-x: hidden;
+
+  font-size: 16px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  margin-bottom: 0;
+  outline: 0;
+  border: 0;
+  box-shadow: 0 0 0 0;
+
+  transition: 300ms ease-in-out;
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+body {
+  scroll-snap-stop: always;
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+}
