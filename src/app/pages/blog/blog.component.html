@@ -1,0 +1,61 @@
+<section id="blog__">
+  <header class="blog__header">
+    <div class="blog__header__img_hero__container">
+      <img
+        src="estatua-direita.png"
+        alt="Estatua representando um blog"
+        class="blog__header__img_hero"
+        loading="lazy"
+      />
+    </div>
+    <h2 class="blog__header_title">
+      Blog • 博客 • Блог • 블로그 • مدونة • Blog • Blog • Blog • Blog • Blog •
+    </h2>
+  </header>
+  @let firsPost = latestPost[0]; @let otherPosts = latestPost.slice(1);
+
+  <section class="blog__posts_container">
+    <article class="blog__post_card">
+      <img
+        [src]="firsPost.banner"
+        class="blog__post_card__img"
+        alt="banner do post {{ firsPost.title }}"
+      />
+      <section class="blog__post_card__body">
+        <span class="blog__post_card__body__date">{{
+          firsPost.createdAt | date : "dd MMM yyyy" : "pt-BR"
+        }}</span>
+        <p class="blog__post_card__body__title">{{ firsPost.title }}</p>
+        <span class="blog__post_card__body__description">
+          {{ firsPost.description }}
+        </span>
+        <img
+          src="arrow-right-svgrepo-com.svg"
+          alt="seta para o lado aplicando o serviço de marketing digital"
+          class="blog__post_card__body__arrow_to_link"
+        />
+      </section>
+    </article>
+    <aside class="blog__posts_list">
+      @for(post of otherPosts; track post) {
+      <article class="blog__post_card">
+        <img [src]="post.banner" class="blog__post_card__img" alt="" />
+        <section class="blog__post_card__body">
+          <span class="blog__post_card__body__date">{{
+            post.createdAt | date : "dd MMM yyyy" : "pt-BR"
+          }}</span>
+          <p class="blog__post_card__body__title">{{ post.title }}</p>
+          <span class="blog__post_card__body__description">
+            {{ post.description }}
+          </span>
+          <img
+            src="arrow-right-svgrepo-com.svg"
+            alt="seta para o lado aplicando o serviço de marketing digital"
+            class="blog__post_card__body__arrow_to_link"
+          />
+        </section>
+      </article>
+      }
+    </aside>
+  </section>
+</section>

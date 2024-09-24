@@ -1,0 +1,174 @@
+#services__ {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 0 0 3rem;
+  scroll-snap-align: start;
+  overflow-x: hidden;
+
+  .services__grid_brackground {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0.5;
+    z-index: 1;
+  }
+
+  .services__title {
+    font-family: "Raleway", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    font-size: 5rem;
+    position: relative;
+    z-index: 3;
+    text-transform: uppercase;
+    opacity: 0.8;
+    background: linear-gradient(90deg, #8b2ce3 0, #ff3295 100%);
+    -webkit-background-clip: text;
+    text-fill-color: transparent;
+    -webkit-text-fill-color: transparent;
+    overflow: hidden;
+    white-space: nowrap;
+    mix-blend-mode: exclusion;
+  }
+
+  .services__explain__type_container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10rem;
+    z-index: 3;
+    padding: 3rem 0;
+
+    .service__tablet_mockup {
+      width: 300px;
+      height: auto;
+      border: 1px solid var(--obsidian-400);
+      border-radius: 24px;
+      display: flex;
+      flex-direction: column;
+      background-color: #f3f4f630;
+
+      .service__tablet_mockup__header {
+        width: 100%;
+        height: 50px;
+        border-bottom: 1px solid var(--obsidian-300);
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 0.5rem;
+        padding: 0 3dvw;
+
+        .service__tablet_mockup__circle {
+          width: 15px;
+          height: 15px;
+          border-radius: 50%;
+          background-color: var(--obsidian-400);
+        }
+      }
+
+      .service__tablet_mockup__body {
+        width: 100%;
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 0.6rem;
+        justify-content: center;
+        position: relative;
+
+        &::before {
+          content: "";
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          position: absolute;
+          bottom: 1rem;
+          left: 50%;
+          transform: translateX(-50%);
+          border: 1px solid var(--obsidian-400);
+        }
+
+        --image-border-color: transparent;
+
+        .service__tablet_mockup__image {
+          width: clamp(180px, 10dvw, 200px);
+          height: auto;
+          border-radius: 12px;
+          padding: 0.3rem;
+          background-color: white;
+          border: 2px dashed var(--image-border-color);
+          cursor: pointer;
+          box-shadow: 0 0.3rem 0.9rem #00000030;
+          filter: blur(0.1px) grayscale(0.9);
+
+          &:hover,
+          &.service__tablet_mockup__image--active {
+            --image-border-color: var(--blue-600);
+            filter: blur(0) grayscale(0);
+          }
+
+          &:nth-child(1) {
+            position: relative;
+            top: 3rem;
+          }
+
+          &:nth-child(3) {
+            position: relative;
+            top: -3rem;
+          }
+        }
+      }
+    }
+
+    .service__types_container {
+      flex: 1 1 400px;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 600px;
+
+      --type-border-left-color: var(--obsidian-300);
+
+      .service__type__collapse_card {
+        padding: 0.5rem 3rem;
+        border-left: 3px solid var(--type-border-left-color);
+        display: flex;
+        flex-direction: column;
+        transition: 300ms ease-in-out;
+        cursor: pointer;
+
+        &.selected {
+          gap: 0.8rem;
+
+          --type-border-left-color: var(--blue-600);
+
+          .service__type__collapse_card__description {
+            max-height: 500px;
+          }
+        }
+
+        .service__type__collapse_card__title {
+          font-family: "Poppins", sans-serif;
+          font-weight: 600;
+          font-size: 1.5rem;
+          color: var(--obsidian-600);
+        }
+
+        .service__type__collapse_card__description {
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.3s ease-out;
+          font-family: "Poppins", sans-serif;
+          font-weight: 400;
+          color: var(--obsidian-500);
+        }
+      }
+    }
+  }
+}

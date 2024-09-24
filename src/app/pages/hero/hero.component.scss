@@ -1,0 +1,152 @@
+#hero__ {
+  width: 100dvw;
+  height: 100dvh;
+  position: relative;
+
+  // &::before {
+  //   content: "";
+  //   width: 100dvw;
+  //   height: 52dvh;
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   background: var(--yellow-500);
+  // }
+
+  .hero__title {
+    position: absolute;
+    font-family: "Raleway", system-ui;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-size: 15dvw;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--blue-100);
+    z-index: 1;
+    opacity: 0.5;
+  }
+
+  .hero__logo {
+    width: 90dvw;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    filter: drop-shadow(2rem 2rem 2rem rgba(0, 0, 0, 0.3));
+  }
+
+  .hero__hero_cta_megaphone {
+    z-index: 3;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: clamp(230px, 30dvw, 740px);
+    height: max-content;
+    object-fit: cover;
+    object-position: center;
+    filter: blur(8px);
+  }
+
+  .hero__mouse_animation {
+    position: absolute;
+    bottom: 80px;
+    right: 5dvw;
+    border: 1px solid var(--obsidian-500);
+    width: 35px;
+    height: 55px;
+    border-radius: 24px;
+
+    &::before {
+      content: "";
+      width: 2px;
+      height: 10px;
+      position: absolute;
+      top: 15px;
+      left: 50%;
+      border-radius: 10px;
+      transform: translate(-50%, -50%);
+      background: var(--obsidian-500);
+      animation: mouseAnimation 2s ease infinite;
+    }
+
+    @keyframes mouseAnimation {
+      0% {
+        height: 10px;
+        top: 15px;
+      }
+      50% {
+        height: 16px;
+        top: 20px;
+      }
+      100% {
+        height: 10px;
+        top: 15px;
+      }
+    }
+  }
+
+  .hero__cta_button {
+    position: absolute;
+    bottom: 80px;
+    left: 5dvw;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 1.2rem;
+    color: var(--obsidian-700);
+    border-radius: 50px;
+    background: var(--yellow-600);
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: flex-end;
+    cursor: pointer;
+    width: 260px;
+    height: 50px;
+    padding: 0 6px 0 0;
+    z-index: 3;
+
+    --before-top-position: -3px;
+    --before-right-position: -7px;
+
+    &::before {
+      content: "";
+      width: 260px;
+      height: 50px;
+      position: absolute;
+      top: var(--before-top-position);
+      right: var(--before-right-position);
+      border-radius: 50px;
+      border: 1px solid var(--obsidian-700);
+      z-index: 2;
+      transition: 200ms ease-in-out;
+    }
+
+    &:hover::before {
+      --before-top-position: 0;
+      --before-right-position: 0;
+    }
+
+    .hero__cta_button__container_icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: #00000025;
+      border-radius: 50%;
+    }
+
+    .hero__cta_button__icon {
+      width: 30px;
+      height: 30px;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+}

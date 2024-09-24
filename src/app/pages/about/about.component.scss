@@ -1,0 +1,78 @@
+#about__ {
+  width: 100dvw;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  z-index: 2;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+
+  .about__background {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0.5;
+  }
+
+  .about__hero_images_container {
+    height: 50dvh;
+    object-fit: contain;
+    position: relative;
+    flex: 0 1 400px;
+
+    .about__hero_image__coffee_branch {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      height: auto;
+      object-fit: contain;
+      object-position: center;
+      z-index: 2;
+      transform: translate(-80%, -70%);
+      rotate: 45deg;
+      width: 184px;
+    }
+
+    .about__hero_image__statue {
+      height: 65dvh;
+      position: absolute;
+      top: 0;
+      transform: scaleX(-1);
+    }
+  }
+
+  .about__marketing_agency {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: center;
+    height: 50dvh;
+    position: relative;
+    flex: 1 1 400px;
+    max-width: 500px;
+  }
+
+  .about__marketing_agency__title {
+    font-family: "Raleway", system-ui;
+    font-weight: 900;
+    font-style: normal;
+    font-size: 3rem;
+    background: linear-gradient(90deg, #8b2ce3 0, #ff3295 100%);
+    -webkit-background-clip: text;
+    text-fill-color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .about__marketing_agency__context {
+    font-family: "Raleway", system-ui;
+    font-weight: 400;
+    mix-blend-mode: multiply;
+    word-break: break-all;
+  }
+}
