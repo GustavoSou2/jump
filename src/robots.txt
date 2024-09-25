@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /src/
+Allow: /public/
+
+Sitemap: https://www.vemnajump.online/sitemap.xml
