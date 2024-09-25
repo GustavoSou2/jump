@@ -20,6 +20,7 @@
         [src]="firsPost.banner"
         class="blog__post_card__img"
         alt="banner do post {{ firsPost.title }}"
+        loading="lazy"
       />
       <section class="blog__post_card__body">
         <span class="blog__post_card__body__date">{{
@@ -33,13 +34,14 @@
           src="arrow-right-svgrepo-com.svg"
           alt="seta para o lado aplicando o serviço de marketing digital"
           class="blog__post_card__body__arrow_to_link"
+          loading="lazy"
         />
       </section>
     </article>
     <aside class="blog__posts_list">
       @for(post of otherPosts; track post) {
       <article class="blog__post_card">
-        <img [src]="post.banner" class="blog__post_card__img" alt="" />
+        <img [src]="post.banner" class="blog__post_card__img" alt="banner do post {{ post.title }}" loading="lazy" />
         <section class="blog__post_card__body">
           <span class="blog__post_card__body__date">{{
             post.createdAt | date : "dd MMM yyyy" : "pt-BR"
@@ -52,6 +54,7 @@
             src="arrow-right-svgrepo-com.svg"
             alt="seta para o lado aplicando o serviço de marketing digital"
             class="blog__post_card__body__arrow_to_link"
+            loading="lazy"
           />
         </section>
       </article>

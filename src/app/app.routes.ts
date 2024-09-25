@@ -10,7 +10,9 @@ export const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: '',
-    pathMatch: 'full',
+    loadComponent: () =>
+      import('./pages/page-not-found/page-not-found.component').then(
+        (c) => c.PageNotFoundComponent
+      ),
   },
 ];

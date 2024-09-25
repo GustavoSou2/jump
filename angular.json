@@ -31,7 +31,9 @@
               {
                 "glob": "**/*",
                 "input": "src/app/assets/images"
-              }
+              },
+              "src/robots.txt",
+              "src/favicon.ico"
             ],
             "styles": ["src/styles.scss"],
             "scripts": [],
