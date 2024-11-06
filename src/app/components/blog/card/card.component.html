@@ -1,0 +1,55 @@
+@let _post = post(); @let bannerOfPost = 'banner' + _post.title; @let keyWords =
+_post.key_words;
+<section id="card__">
+  @if (!!_post.image_id) {
+  <img
+    [src]="_post.image_id"
+    [alt]="bannerOfPost"
+    class="card__img"
+    loading="lazy"
+  />
+  }
+
+  <article class="card__content">
+    <header class="card__context">
+      <h2 class="card__context__title">{{ _post.title }}</h2>
+      <p class="card__context__text">
+        {{ removeHtmlTags(_post.text) }}
+      </p>
+    </header>
+    <footer class="card__options">
+      <div class="card__options__keywords_read">
+        <ul class="card__options__list">
+          @for (keyWord of keyWords; track keyWord) {
+          <li class="card__options__list__item">#{{ keyWord }}</li>
+          }
+        </ul>
+        <span class="card__options__time_to_read">{{
+          calculateReadingTime(removeHtmlTags(_post.text))
+        }}</span>
+      </div>
+      <div class="card__options__actions">
+        <img
+          src="like.svg"
+          alt="Coração do curtir"
+          class="card__options__actions__arrow_to_link"
+          loading="lazy"
+          [attr.data--count]="likes()"
+        />
+        <img
+          src="save.svg"
+          alt="Salvar para ler depois"
+          class="card__options__actions__arrow_to_link"
+          loading="lazy"
+          [attr.data--count]="saves()"
+        />
+        <img
+          src="share.svg"
+          alt="Compartilhar"
+          class="card__options__actions__arrow_to_link"
+          loading="lazy"
+        />
+      </div>
+    </footer>
+  </article>
+</section>

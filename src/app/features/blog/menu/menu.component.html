@@ -1,0 +1,14 @@
+<section class="blog__menu__">
+  <ul class="blog__menu__list">
+    @for (item of blogAsideMenu; track item) {
+    <li class="blog__menu__list__item">
+      <img
+        class="blog__menu__list__item__img"
+        src="https://emojiapi.dev/api/v1/{{ item.svgCode }}.svg"
+        [alt]="item.name + ' do blog'"
+      />
+      {{ item.name }}''
+    </li>
+    }
+  </ul>
+</section>

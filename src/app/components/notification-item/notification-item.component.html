@@ -1,0 +1,20 @@
+<section
+  class="notification_item__"
+  style="--notification-width-duration: {{ _item.duration }}s"
+>
+  <div class="notification_item__progress"></div>
+  <div class="notification_item__circle category__{{ _item.category }}"></div>
+  <img
+    [src]="_item.svgCode"
+    [alt]="_item.title"
+    class="notification_item__img"
+  />
+  <article class="notification_item__info">
+    <h3 class="notification_item__info__title">
+      {{ _item.title }}
+    </h3>
+    <p class="notification_item__info__message">
+      {{ _item.message }}
+    </p>
+  </article>
+</section>

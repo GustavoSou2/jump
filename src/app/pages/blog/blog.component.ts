@@ -1,50 +1,43 @@
+import { Component, Inject, OnInit, signal } from '@angular/core';
+import { Post } from '../../core/models/post.model';
+import { PostService } from '../../core/services/post/post.service';
+import { CardComponent } from '../../components/blog/card/card.component';
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { AsideOptionsComponent } from '../../features/blog/aside-options/aside-options.component';
+import { MenuComponent } from '../../features/blog/menu/menu.component';
+import { StorageService } from '../../utils/local-storage/local-storage.service';
+import { Observable, of } from 'rxjs';
 
 @Component({
-  selector: 'j-blog',
+  selector: 'app-blog',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CardComponent, CommonModule, AsideOptionsComponent, MenuComponent],
+  providers: [PostService],
   templateUrl: './blog.component.html',
   styleUrl: './blog.component.scss',
 })
-export class BlogComponent {
-  latestPost = [
-    {
-      id: 1,
-      banner:
-        'https://images.pexels.com/photos/1031698/pexels-photo-1031698.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      title: 'Sabe qual a diferença de tráfego orgânico e pago?',
-      description:
-        'Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser integrado a softwares de editoração eletrônica como Aldus PageMaker.',
-      createdAt: Date.parse('2024-09-01'),
-    },
-    {
-      id: 2,
-      banner:
-        'https://images.pexels.com/photos/1437318/pexels-photo-1437318.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      title: 'Como a sua marca conversa com o público?',
-      description:
-        'Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser integrado a softwares de editoração eletrônica como Aldus PageMaker.',
-      createdAt: Date.parse('2024-08-27'),
-    },
-    {
-      id: 3,
-      banner:
-        'https://images.pexels.com/photos/5947542/pexels-photo-5947542.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      title: 'O que te diferencia da concorrência?',
-      description:
-        'Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser integrado a softwares de editoração eletrônica como Aldus PageMaker.',
-      createdAt: Date.parse('2024-08-03'),
-    },
-    {
-      id: 4,
-      banner:
-        'https://images.pexels.com/photos/326502/pexels-photo-326502.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      title: 'O que te diferencia da concorrência?',
-      description:
-        'Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser integrado a softwares de editoração eletrônica como Aldus PageMaker.',
-      createdAt: Date.parse('2024-07-29'),
-    },
-  ];
+export class BlogComponent implements OnInit {
+  cookieKey: string = 'latestPost';
+  posts$ = signal<Observable<any[]> | null>(null);
+
+  constructor(
+    @Inject(PostService) private postService: PostService,
+    private storageService: StorageService
+  ) {}
+
+  ngOnInit(): void {
+    const postsOnLocalStorage = this.storageService.getItem(this.cookieKey);
+
+    if (!!postsOnLocalStorage && postsOnLocalStorage.length > 0) {
+      const posts = JSON.parse(postsOnLocalStorage);
+
+      return this.posts$.update(() => of(posts));
+    }
+
+    this.postService.findAllPosts().then(async (posts) => {
+      await this.storageService.setItem(this.cookieKey, JSON.stringify(posts));
+
+      this.posts$.update(() => of(posts));
+    });
+  }
 }

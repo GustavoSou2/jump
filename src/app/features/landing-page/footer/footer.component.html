@@ -1,0 +1,30 @@
+<footer class="footer">
+  <ul class="footer__nav">
+    <li class="nav__item nav__item--extra">
+      <h2 class="nav__title">Menu</h2>
+
+      <ul class="nav__ul nav__ul--extra">
+        <ul class="menu__nav__list">
+          @for(item of menu; track item) {
+          <li class="menu__nav__list__item" (click)="scrollToSection(item.id)">
+            {{ item.name }}
+          </li>
+          }
+        </ul>
+      </ul>
+    </li>
+
+    <li class="nav__item">
+      <ul class="nav__ul">
+        <li>Jump | Agência de marketing</li>
+
+        <li>
+          <a href="#">Desenvolvido por: Gustavo Souza</a>
+        </li>
+      </ul>
+    </li>
+    <li class="nav__item">
+      <h2 class="nav__title">&copy; 2024 Something. All rights reserved.</h2>
+    </li>
+  </ul>
+</footer>

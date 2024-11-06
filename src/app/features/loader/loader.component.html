@@ -1,0 +1,14 @@
+@if (loaderState()) {
+<section id="loading__" class="loading-screen">
+  <h1 class="loading__text">
+    @if(!!currentWord) {
+    <span @wordAnimation>{{ currentWord }}</span>
+    }
+  </h1>
+  <article class="loading__logo_container">
+    @if(!!currentWord) {
+    <span @wordAnimation class="loading__current_word"> {{ currentWord }}</span>
+    }
+  </article>
+</section>
+}

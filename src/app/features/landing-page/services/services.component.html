@@ -1,0 +1,138 @@
+<section id="services__">
+  <img
+    src="grid.svg"
+    class="services__grid_brackground"
+    alt="Grid azul clara estilo figma"
+  />
+  <h2 class="services__title">
+    Serviços • Services • 服務 • Услуги • 서비스 • خدمات • Dienstleistungen •
+    Servicios • Servizi • Service
+  </h2>
+  <section class="services__explain__type_container">
+    <div class="service__tablet_mockup">
+      <div class="service__tablet_mockup__header">
+        <div class="service__tablet_mockup__circle"></div>
+        <div class="service__tablet_mockup__circle"></div>
+        <div class="service__tablet_mockup__circle"></div>
+      </div>
+      <div class="service__tablet_mockup__body">
+        <img
+          src="macbook.jpg"
+          alt="Computador de alta performance que contém uma história"
+          class="service__tablet_mockup__image"
+          loading="lazy"
+          [ngClass]="{
+            'service__tablet_mockup__image--active':
+              serviceTypeSelectedId === SERVICE_TYPES_DICT.BRANDING
+          }"
+          (click)="serviceTypeSelectedId = SERVICE_TYPES_DICT.BRANDING"
+        />
+        <img
+          src="tenis-nike.jpg"
+          alt="Tênis estiloso representando a identidade visual da marca."
+          class="service__tablet_mockup__image"
+          loading="lazy"
+          [ngClass]="{
+            'service__tablet_mockup__image--active':
+              serviceTypeSelectedId === SERVICE_TYPES_DICT.VISUAL_IDENTITY
+          }"
+          (click)="serviceTypeSelectedId = SERVICE_TYPES_DICT.VISUAL_IDENTITY"
+        />
+        <img
+          src="gestao-trafego.jpg"
+          alt="Gráficos que mostrarm análise de dados"
+          class="service__tablet_mockup__image"
+          loading="lazy"
+          [ngClass]="{
+            'service__tablet_mockup__image--active':
+              serviceTypeSelectedId === SERVICE_TYPES_DICT.MANAGEMENT
+          }"
+          (click)="serviceTypeSelectedId = SERVICE_TYPES_DICT.MANAGEMENT"
+        />
+        <img
+          src="social-media.jpg"
+          alt="Mão demonstrando a importancia de uma rede social bem organizada"
+          class="service__tablet_mockup__image"
+          loading="lazy"
+          [ngClass]="{
+            'service__tablet_mockup__image--active':
+              serviceTypeSelectedId === SERVICE_TYPES_DICT.SOCIAL_MEDIA
+          }"
+          (click)="serviceTypeSelectedId = SERVICE_TYPES_DICT.SOCIAL_MEDIA"
+        />
+      </div>
+    </div>
+    <div class="service__types_container">
+      @for(service of servicesCellphoneType; track service.id; let i = $index) {
+      <article
+        class="service__type__collapse_card"
+        [ngClass]="{ selected: serviceTypeSelectedId === service.id }"
+        (click)="serviceTypeSelectedId = service.id"
+      >
+        <h2 class="service__type__collapse_card__title">{{ service.title }}</h2>
+        <p class="service__type__collapse_card__description">
+          {{ service.description }}
+        </p>
+      </article>
+      }
+    </div>
+  </section>
+  <section class="services__explain__type_container">
+    <div class="service__types_container">
+      @for(service of servicesComputerType; track service.id; let i = $index) {
+      <article
+        class="service__type__collapse_card"
+        [ngClass]="{ selected: serviceTypeSelectedId === service.id }"
+        (click)="serviceTypeSelectedId = service.id"
+      >
+        <h2 class="service__type__collapse_card__title">{{ service.title }}</h2>
+        <p class="service__type__collapse_card__description">
+          {{ service.description }}
+        </p>
+      </article>
+      }
+    </div>
+    <div class="service__computer_mockup">
+      <div class="service__computer_mockup__header">
+        <div class="service__computer_mockup__circle"></div>
+      </div>
+      <div class="service__computer_mockup__body">
+        <img
+          src="desenvolvendo-site.jpg"
+          alt="Criando uma aplicação de uma landing page, e-commerce ou site"
+          class="service__computer_mockup__image"
+          loading="lazy"
+          [ngClass]="{
+            'service__computer_mockup__image--active':
+              serviceTypeSelectedId === SERVICE_TYPES_DICT.DEVELOPMENT_WEBSITE
+          }"
+          (click)="
+            serviceTypeSelectedId = SERVICE_TYPES_DICT.DEVELOPMENT_WEBSITE
+          "
+        />
+        <img
+          src="analisando-graficos.jpg"
+          alt="Visualizando melhor estratégia para um plano de SEO"
+          class="service__computer_mockup__image"
+          loading="lazy"
+          [ngClass]="{
+            'service__computer_mockup__image--active':
+              serviceTypeSelectedId === SERVICE_TYPES_DICT.SEO
+          }"
+          (click)="serviceTypeSelectedId = SERVICE_TYPES_DICT.SEO"
+        />
+        <img
+          src="criando-estrategia.jpg"
+          alt="Grupo de pessoas desenvolvendo uma estratégia de consultoria de Marketing Marketing Digital"
+          class="service__computer_mockup__image"
+          loading="lazy"
+          [ngClass]="{
+            'service__computer_mockup__image--active':
+              serviceTypeSelectedId === SERVICE_TYPES_DICT.MARKETING
+          }"
+          (click)="serviceTypeSelectedId = SERVICE_TYPES_DICT.MARKETING"
+        />
+      </div>
+    </div>
+  </section>
+</section>

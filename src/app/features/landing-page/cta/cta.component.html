@@ -1,0 +1,25 @@
+<section id="cta__" class="contact-area">
+  <form class="contact-area--form" [formGroup]="contactForm">
+    <h2 class="section-title">Entre em contato</h2>
+    <input type="text" placeholder="Nome" formControlName="name" />
+    <input type="text" placeholder="Email" formControlName="email" />
+    <textarea placeholder="Mensagem" formControlName="message"></textarea>
+    <button
+      class="contact-area--form-button"
+      type="submit"
+      (click)="onSubmit()"
+    >
+      Enviar
+    </button>
+  </form>
+  <form class="contact-area--form" style="display: none">
+    <h2 class="section-title">Assine nossa newsletter</h2>
+    <p>
+      Cadastre-se para receber novidades. <span>É gratuito</span> e pode
+      cancelar a qualquer momento
+    </p>
+    <input type="text" placeholder="Nome" />
+    <input type="text" placeholder="Email" />
+    <button class="contact-area--form-button">Assinar</button>
+  </form>
+</section>

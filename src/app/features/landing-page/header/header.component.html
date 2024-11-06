@@ -1,0 +1,36 @@
+<header id="menu__">
+  <input
+    type="checkbox"
+    class="toggler"
+    id="toggler-menu"
+    [(ngModel)]="toggleMenu"
+  />
+  <label for="toggler-menu" class="hamburger"><div></div></label>
+  <nav class="menu__nav">
+    <ul class="menu__nav__list">
+      @for(item of menu; track item) {
+      <li
+        class="menu__nav__list__item"
+        (click)="scrollToSection(item.id); toggleMenu = false"
+      >
+        {{ item.name }}
+      </li>
+      }
+    </ul>
+    <ul class="menu__nav__list">
+      @for(item of socialMedia; track item) {
+      <li
+        class="menu__nav__list__item"
+        (click)="item.click(); toggleMenu = false"
+      >
+        <img
+          [src]="item.svg"
+          [alt]="item.name"
+          loading="lazy"
+          class="menu__nav__list__item__img"
+        />
+      </li>
+      }
+    </ul>
+  </nav>
+</header>

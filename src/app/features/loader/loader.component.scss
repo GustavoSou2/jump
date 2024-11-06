@@ -1,0 +1,43 @@
+#loading__ {
+  width: 100dvw;
+  height: 100dvh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 300ms ease-in-out;
+  background: var(--yellow-300);
+
+  .loading__text {
+    font-family: "Raleway", system-ui;
+    font-weight: 900;
+    font-size: 10dvw;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--blue-100);
+    z-index: 1;
+    opacity: 0.5;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .loading__logo_container {
+    height: 300px;
+    display: flex;
+    align-items: center;
+    z-index: 11;
+    text-transform: uppercase;
+    color: var(--obsidian-700);
+    font-weight: bold;
+    background: linear-gradient(90deg, #8b2ce3 0, #ff3295 100%);
+    -webkit-background-clip: text;
+    text-fill-color: transparent;
+    -webkit-text-fill-color: transparent;
+    font-size: 2rem;
+  }
+}

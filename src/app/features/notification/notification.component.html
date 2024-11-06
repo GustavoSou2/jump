@@ -1,0 +1,5 @@
+<section id="notification" [ngClass]="{ 'show-case': hasNotification }">
+  @for(notification of notifications; track notification) {
+  <notification-item [item]="notification"></notification-item>
+  }
+</section>

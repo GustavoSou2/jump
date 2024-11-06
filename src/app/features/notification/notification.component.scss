@@ -1,0 +1,15 @@
+#notification {
+  --notification-top-position: -100dvh;
+  width: clamp(300px, 50vw, 500px);
+  height: max-content;
+  position: fixed;
+  left: 50%;
+  top: var(--notification-top-position);
+  transform: translateX(-50%);
+  z-index: 10;
+  transition: 1s ease-in-out;
+
+  &.show-case {
+    --notification-top-position: 2dvh;
+  }
+}
